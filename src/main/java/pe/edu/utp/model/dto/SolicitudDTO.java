@@ -36,9 +36,6 @@ public class SolicitudDTO {
     @JsonProperty("visible")
     private boolean visible;          // Visibilidad
 
-    public SolicitudDTO() {
-    }
-
     public SolicitudDTO(String descripcion, String id, Timestamp fechaFin, String estado, Timestamp fechaInicio, Timestamp fechaSolicitud, String id_servicio, String id_cliente, GeoPoint ubicacion, boolean visible) {
         this.descripcion = descripcion;
         this.id = id;
