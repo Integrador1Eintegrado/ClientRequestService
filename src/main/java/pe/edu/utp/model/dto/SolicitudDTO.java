@@ -1,8 +1,12 @@
 package pe.edu.utp.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.google.cloud.Timestamp;
 import com.google.cloud.firestore.GeoPoint;
+import pe.edu.utp.model.deserializer.TimestampDeserializer;
+
+import java.util.Objects;
 
 public class SolicitudDTO {
 
@@ -16,12 +20,15 @@ public class SolicitudDTO {
     private String estado;            // Estado de la solicitud
 
     @JsonProperty("fechaFin")
+    @JsonDeserialize(using = TimestampDeserializer.class)
     private Timestamp fechaFin;       // Fecha de finalización
 
     @JsonProperty("fechaInicio")
+    @JsonDeserialize(using = TimestampDeserializer.class)
     private Timestamp fechaInicio;    // Fecha de inicio
 
     @JsonProperty("fechaSolicitud")
+    @JsonDeserialize(using = TimestampDeserializer.class)
     private Timestamp fechaSolicitud; // Fecha de creación
 
     @JsonProperty("id_cliente")
@@ -35,6 +42,9 @@ public class SolicitudDTO {
 
     @JsonProperty("visible")
     private boolean visible;          // Visibilidad
+
+    public SolicitudDTO() {
+    }
 
     public SolicitudDTO(String descripcion, String id, Timestamp fechaFin, String estado, Timestamp fechaInicio, Timestamp fechaSolicitud, String id_servicio, String id_cliente, GeoPoint ubicacion, boolean visible) {
         this.descripcion = descripcion;
@@ -128,4 +138,5 @@ public class SolicitudDTO {
     public void setUbicacion(GeoPoint ubicacion) {
         this.ubicacion = ubicacion;
     }
+
 }
