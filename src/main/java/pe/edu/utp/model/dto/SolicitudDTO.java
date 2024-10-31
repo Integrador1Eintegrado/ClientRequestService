@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.google.cloud.Timestamp;
 import com.google.cloud.firestore.GeoPoint;
+import pe.edu.utp.model.deserializer.GeoPointDeserializer;
 import pe.edu.utp.model.deserializer.TimestampDeserializer;
 
 import java.util.Objects;
@@ -38,6 +39,8 @@ public class SolicitudDTO {
     private String id_servicio;       // ID del servicio
 
     @JsonProperty("ubicacion")
+    @JsonDeserialize(using = GeoPointDeserializer.class)
+
     private GeoPoint ubicacion;       // Ubicación (coordenadas)
 
     @JsonProperty("visible")
