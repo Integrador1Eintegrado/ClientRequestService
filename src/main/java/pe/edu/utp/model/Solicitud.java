@@ -11,7 +11,7 @@ public class Solicitud {
 
     private String id_cliente; // ID del cliente que hace la solicitud
     private String id_servicio; // ID del servicio relacionado
-    private String descripcion; // Descripción adicional de la solicitud hola
+    private String descripcion; // Descripción adicional de la solicitud
     private String estado = "pendiente"; // Estado por defecto
 
     // Constructor vacío
